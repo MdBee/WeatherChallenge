@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+internal struct Identifiers
+{
+    static let kSearchCell = "kSearchCell"
+    static let kSearchViewController = "kSearchViewController"
+    static let kDetailsViewController = "kDetailsViewController"
+    static let kIconCollectionViewCell = "kIconCollectionViewCell"
+}

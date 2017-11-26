@@ -8,10 +8,19 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, SearchViewDataSourceDelegate {
+    
+    var datasource: SearchViewDataSource!
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        datasource = SearchDataSource()
+//        super.init(coder: aDecoder)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datasource = SearchViewDataSource()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -95,5 +104,20 @@ class SearchTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    //MARK: Delegate
+    /* updating view */
+    func didUpdateView() {
+        self.tableView.reloadData()
+    }
+    
+    /* showing error if server send it */
+    func didShow(error: Error)
+    {
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        let action =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

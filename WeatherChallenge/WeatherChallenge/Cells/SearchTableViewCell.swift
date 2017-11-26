@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol SearchTableViewCellDelegate {
+    func didDelete(weatherGeneral: WeatherGeneral)
+}
+
 class SearchTableViewCell: UITableViewCell {
 
+    var delegate: SearchTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

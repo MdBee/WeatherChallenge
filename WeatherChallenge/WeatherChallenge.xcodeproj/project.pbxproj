@@ -20,6 +20,7 @@
 		423E2CE61FCB41DE00CAA684 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CE51FCB41DE00CAA684 /* SearchTableViewController.swift */; };
 		423E2CEA1FCB472100CAA684 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CE81FCB472100CAA684 /* SearchTableViewCell.swift */; };
 		423E2CEB1FCB472100CAA684 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423E2CE91FCB472100CAA684 /* SearchTableViewCell.xib */; };
+		423E2CEF1FCB4D9600CAA684 /* SearchViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CEE1FCB4D9600CAA684 /* SearchViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		423E2CE51FCB41DE00CAA684 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		423E2CE81FCB472100CAA684 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		423E2CE91FCB472100CAA684 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		423E2CEE1FCB4D9600CAA684 /* SearchViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +171,7 @@
 		423E2CDF1FCB2BDA00CAA684 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				423E2CE51FCB41DE00CAA684 /* SearchTableViewController.swift */,
+				423E2CEC1FCB4D4400CAA684 /* SearchViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,6 +191,15 @@
 				423E2CE91FCB472100CAA684 /* SearchTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		423E2CEC1FCB4D4400CAA684 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				423E2CE51FCB41DE00CAA684 /* SearchTableViewController.swift */,
+				423E2CEE1FCB4D9600CAA684 /* SearchViewDataSource.swift */,
+			);
+			path = SearchViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				423E2CDB1FCB2B7700CAA684 /* Backend.swift in Sources */,
+				423E2CEF1FCB4D9600CAA684 /* SearchViewDataSource.swift in Sources */,
 				423E2CA81FCB29CD00CAA684 /* AppDelegate.swift in Sources */,
 				423E2CE61FCB41DE00CAA684 /* SearchTableViewController.swift in Sources */,
 				423E2CDD1FCB2B9300CAA684 /* CoreDataManager.swift in Sources */,
