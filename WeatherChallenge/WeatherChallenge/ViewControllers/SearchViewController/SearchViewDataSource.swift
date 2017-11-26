@@ -17,7 +17,7 @@ protocol SearchViewDataSourceDelegate {
 
 /* SearchViewDataSource populates the Search View Controller */
 
-class SearchViewDataSource: NSObject,UITableViewDataSource,NSFetchedResultsControllerDelegate,UISearchBarDelegate,SearchTableViewCellDelegate
+class SearchViewDataSource: NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, SearchTableViewCellDelegate
 {
     var delegate: SearchViewDataSourceDelegate?
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
@@ -29,7 +29,7 @@ class SearchViewDataSource: NSObject,UITableViewDataSource,NSFetchedResultsContr
         super.init()
     }
     
-    func searchControllerInitilization()
+    func searchControllerInitialization()
     {
         //searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -43,7 +43,7 @@ class SearchViewDataSource: NSObject,UITableViewDataSource,NSFetchedResultsContr
     func doCustomization()
     {
         initializeFetchedResultsController()
-        searchControllerInitilization()
+        searchControllerInitialization()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,21 +80,21 @@ class SearchViewDataSource: NSObject,UITableViewDataSource,NSFetchedResultsContr
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherGeneral")
         
-        //let fetchPredicate = NSPredicate(format: "searchList.searchText CONTAINS[c] %@", searchString)
-        //request.predicate = fetchPredicate
+        let fetchPredicate = NSPredicate(format: "searchList.searchText CONTAINS[c] %@", searchString)
+        request.predicate = fetchPredicate
         
         let sortDescr = NSSortDescriptor(key: "lastUpdate", ascending: false)
         request.sortDescriptors = [sortDescr]
         
-//        let moc = CoreDataManager.defaultManager().managedObjectContext
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedResultsController.delegate = self
-//
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch {
-//            fatalError("Failed to initialize FetchedResultsController: \(error)")
-//        }
+        let moc = CoreDataManager.defaultManager().managedObjectContext
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FetchedResultsController: \(error)")
+        }
     }
     
     //MARK: fetch result delegate
