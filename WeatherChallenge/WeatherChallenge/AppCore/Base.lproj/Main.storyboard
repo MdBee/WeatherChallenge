@@ -37,9 +37,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="IB2-eC-mvW" id="l80-OA-1rR"/>
-                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="kSearchCell" id="PjI-0G-ANH">
@@ -52,8 +49,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="IB2-eC-mvW" id="MVH-VS-e2s"/>
-                            <outlet property="delegate" destination="IB2-eC-mvW" id="VCZ-7l-HTO"/>
+                            <outlet property="dataSource" destination="IB2-eC-mvW" id="KgE-EH-IOz"/>
+                            <outlet property="delegate" destination="IB2-eC-mvW" id="rg8-FY-Rh5"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="City Weather" id="b9G-zs-ayq"/>
@@ -64,7 +61,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajn-dz-z9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="Vc1-oz-KVu">
                     <connections>
-                        <outlet property="delegate" destination="IB2-eC-mvW" id="dQR-qI-b3N"/>
                         <outlet property="searchBar" destination="8ga-c8-28V" id="oih-NX-jbq"/>
                         <outlet property="searchContentsController" destination="IB2-eC-mvW" id="mdd-dj-udp"/>
                         <outlet property="searchResultsDataSource" destination="IB2-eC-mvW" id="3EH-BO-RVY"/>

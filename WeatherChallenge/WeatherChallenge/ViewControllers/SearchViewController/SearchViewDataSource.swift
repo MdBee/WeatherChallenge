@@ -36,7 +36,7 @@ class SearchViewDataSource: NSObject,UITableViewDataSource,NSFetchedResultsContr
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Place (City,State,Code)";
+        searchController.searchBar.placeholder = "Enter City Name";
     }
     
     /* customization / init fetch result & search controller */
@@ -55,20 +55,23 @@ class SearchViewDataSource: NSObject,UITableViewDataSource,NSFetchedResultsContr
     
     func configureCell(cell: SearchTableViewCell, indexPath:IndexPath)
     {
-        guard let selectedObject = fetchedResultsController.object(at: indexPath) as? WeatherGeneral else { fatalError("Unexpected Object in FetchedResultsController") }
-       // cell.weatherGeneral = selectedObject
+//        guard let selectedObject = fetchedResultsController.object(at: indexPath) as? WeatherGeneral else { fatalError("Unexpected Object in FetchedResultsController") }
+        //cell.weatherGeneral = selectedObject
+        cell.contentView.backgroundColor = UIColor.yellow
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sections = fetchedResultsController.sections else {
-            fatalError("No sections in fetchedResultsController")
-        }
-        let sectionInfo = sections[section]
-        return sectionInfo.numberOfObjects
+//        guard let sections = fetchedResultsController.sections else {
+//            fatalError("No sections in fetchedResultsController")
+//        }
+//        let sectionInfo = sections[section]
+//        return sectionInfo.numberOfObjects
+   return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections!.count
+        //return fetchedResultsController.sections!.count
+        return 1
     }
     
     //MARK: FetchResult

@@ -11,9 +11,9 @@ import UIKit
 class SearchTableViewController: UITableViewController, SearchViewDataSourceDelegate {
     
     var datasource: SearchViewDataSource!
-//    
+    
 //    required init?(coder aDecoder: NSCoder) {
-//        datasource = SearchDataSource()
+//        datasource = SearchViewDataSource()
 //        super.init(coder: aDecoder)
 //    }
     
@@ -27,6 +27,15 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.register(UINib(nibName: String(describing: SearchTableViewCell.classForCoder()), bundle: nil), forCellReuseIdentifier: Identifiers.kSearchCell)
+        
+        datasource.doCustomization()
+        datasource.delegate = self
+        tableView.delegate = self
+        tableView.dataSource = datasource
+        tableView.tableHeaderView = datasource.searchController.searchBar
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,28 +45,28 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 1
+//    }
     
 //    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        return "Weather"
 //    }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchCell", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "kSearchCell", for: indexPath)
+//
+//        // Configure the cell...
+//
+//        return cell
+//    }
  
 
     /*
