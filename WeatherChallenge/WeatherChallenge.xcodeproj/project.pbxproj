@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		423E2CA81FCB29CD00CAA684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CA71FCB29CD00CAA684 /* AppDelegate.swift */; };
-		423E2CAA1FCB29CD00CAA684 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CA91FCB29CD00CAA684 /* ViewController.swift */; };
 		423E2CAD1FCB29CD00CAA684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423E2CAB1FCB29CD00CAA684 /* Main.storyboard */; };
 		423E2CB01FCB29CD00CAA684 /* WeatherChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CAE1FCB29CD00CAA684 /* WeatherChallenge.xcdatamodeld */; };
 		423E2CB21FCB29CD00CAA684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 423E2CB11FCB29CD00CAA684 /* Assets.xcassets */; };
@@ -18,6 +17,9 @@
 		423E2CDB1FCB2B7700CAA684 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CDA1FCB2B7700CAA684 /* Backend.swift */; };
 		423E2CDD1FCB2B9300CAA684 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CDC1FCB2B9300CAA684 /* CoreDataManager.swift */; };
 		423E2CE21FCB2C3500CAA684 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CE11FCB2C3500CAA684 /* Constants.swift */; };
+		423E2CE61FCB41DE00CAA684 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CE51FCB41DE00CAA684 /* SearchTableViewController.swift */; };
+		423E2CEA1FCB472100CAA684 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2CE81FCB472100CAA684 /* SearchTableViewCell.swift */; };
+		423E2CEB1FCB472100CAA684 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423E2CE91FCB472100CAA684 /* SearchTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,6 @@
 /* Begin PBXFileReference section */
 		423E2CA41FCB29CD00CAA684 /* WeatherChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		423E2CA71FCB29CD00CAA684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		423E2CA91FCB29CD00CAA684 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		423E2CAC1FCB29CD00CAA684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		423E2CAF1FCB29CD00CAA684 /* WeatherChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherChallenge.xcdatamodel; sourceTree = "<group>"; };
 		423E2CB11FCB29CD00CAA684 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +56,9 @@
 		423E2CDA1FCB2B7700CAA684 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		423E2CDC1FCB2B9300CAA684 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		423E2CE11FCB2C3500CAA684 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		423E2CE51FCB41DE00CAA684 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		423E2CE81FCB472100CAA684 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		423E2CE91FCB472100CAA684 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		423E2CA61FCB29CD00CAA684 /* WeatherChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				423E2CE71FCB46EB00CAA684 /* Cells */,
 				423E2CE01FCB2C1E00CAA684 /* Utils */,
 				423E2CDF1FCB2BDA00CAA684 /* ViewControllers */,
 				423E2CDE1FCB2BB000CAA684 /* AppCore */,
@@ -164,7 +169,7 @@
 		423E2CDF1FCB2BDA00CAA684 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				423E2CA91FCB29CD00CAA684 /* ViewController.swift */,
+				423E2CE51FCB41DE00CAA684 /* SearchTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -175,6 +180,15 @@
 				423E2CE11FCB2C3500CAA684 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		423E2CE71FCB46EB00CAA684 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				423E2CE81FCB472100CAA684 /* SearchTableViewCell.swift */,
+				423E2CE91FCB472100CAA684 /* SearchTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				423E2CB51FCB29CD00CAA684 /* LaunchScreen.storyboard in Resources */,
+				423E2CEB1FCB472100CAA684 /* SearchTableViewCell.xib in Resources */,
 				423E2CB21FCB29CD00CAA684 /* Assets.xcassets in Resources */,
 				423E2CAD1FCB29CD00CAA684 /* Main.storyboard in Resources */,
 			);
@@ -312,11 +327,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				423E2CDB1FCB2B7700CAA684 /* Backend.swift in Sources */,
-				423E2CAA1FCB29CD00CAA684 /* ViewController.swift in Sources */,
 				423E2CA81FCB29CD00CAA684 /* AppDelegate.swift in Sources */,
+				423E2CE61FCB41DE00CAA684 /* SearchTableViewController.swift in Sources */,
 				423E2CDD1FCB2B9300CAA684 /* CoreDataManager.swift in Sources */,
 				423E2CB01FCB29CD00CAA684 /* WeatherChallenge.xcdatamodeld in Sources */,
 				423E2CE21FCB2C3500CAA684 /* Constants.swift in Sources */,
+				423E2CEA1FCB472100CAA684 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
