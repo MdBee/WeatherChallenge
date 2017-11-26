@@ -117,12 +117,12 @@
 		423E2CA61FCB29CD00CAA684 /* WeatherChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				423E2CE71FCB46EB00CAA684 /* Cells */,
-				423E2CE01FCB2C1E00CAA684 /* Utils */,
 				423E2CDF1FCB2BDA00CAA684 /* ViewControllers */,
-				423E2CDE1FCB2BB000CAA684 /* AppCore */,
-				423E2CD91FCB2B3A00CAA684 /* Backend */,
+				423E2CE71FCB46EB00CAA684 /* Cells */,
 				423E2CD81FCB2B2000CAA684 /* CoreData */,
+				423E2CD91FCB2B3A00CAA684 /* Backend */,
+				423E2CDE1FCB2BB000CAA684 /* AppCore */,
+				423E2CE01FCB2C1E00CAA684 /* Utils */,
 				423E2CB11FCB29CD00CAA684 /* Assets.xcassets */,
 			);
 			path = WeatherChallenge;
