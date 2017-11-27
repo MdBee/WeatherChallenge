@@ -302,29 +302,28 @@ class CoreDataManager: NSObject
     func storeServerResponse(response: [String:AnyObject], searchText: String)
     {
         let moc = CoreDataManager.defaultManager().managedObjectContext
-//        let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-//        privateMOC.parent = moc
+        let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        privateMOC.parent = moc
+
+        privateMOC.perform {
         
-        moc.perform {
-//        privateMOC.perform {
-        
-            let exist = CoreDataManager.defaultManager().isSearchListExist(searchText: searchText, context: moc)
+            let exist = CoreDataManager.defaultManager().isSearchListExist(searchText: searchText, context: privateMOC)
             if exist == false
             {
-                let searchList = SearchList.initWithDictionary(searchText: searchText,dictionary: response, context: moc)
+                let searchList = SearchList.initWithDictionary(searchText: searchText,dictionary: response, context: privateMOC)
                 searchList?.searchText = searchText
                 searchList?.date = NSDate()
             }
             else
             {
-                let searchList = CoreDataManager.defaultManager().getSearchList(searchText: searchText, context: moc)
-                searchList?.updateWith(dictionary: response, context: moc)
+                let searchList = CoreDataManager.defaultManager().getSearchList(searchText: searchText, context: privateMOC)
+                searchList?.updateWith(dictionary: response, context: privateMOC)
                 searchList?.date = NSDate()
             }
             
             do {
-                try moc.save()
-                moc.performAndWait {
+                try privateMOC.save()
+                privateMOC.performAndWait {
                     do {
                         try moc.save()
                     } catch {
