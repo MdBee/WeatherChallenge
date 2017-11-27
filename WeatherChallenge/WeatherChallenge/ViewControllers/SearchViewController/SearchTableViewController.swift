@@ -10,7 +10,7 @@ import UIKit
 
 class SearchTableViewController: UITableViewController, SearchViewDataSourceDelegate {
     
-    var datasource: SearchViewDataSource!
+    var datasource: SearchViewModel!
     
 //    required init?(coder aDecoder: NSCoder) {
 //        datasource = SearchViewDataSource()
@@ -20,7 +20,7 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        datasource = SearchViewDataSource()
+        datasource = SearchViewModel()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

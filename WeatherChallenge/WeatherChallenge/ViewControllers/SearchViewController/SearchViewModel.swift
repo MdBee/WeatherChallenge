@@ -1,5 +1,5 @@
 //
-//  SearchViewDataSource.swift
+//  SearchViewModel.swift
 //  WeatherChallenge
 //
 //  Created by Bearson, Matt D. on 11/26/17.
@@ -17,7 +17,7 @@ protocol SearchViewDataSourceDelegate {
 
 /* SearchViewDataSource populates the Search View Controller */
 
-class SearchViewDataSource: NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, SearchTableViewCellDelegate
+class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, SearchTableViewCellDelegate
 {
     var delegate: SearchViewDataSourceDelegate?
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
