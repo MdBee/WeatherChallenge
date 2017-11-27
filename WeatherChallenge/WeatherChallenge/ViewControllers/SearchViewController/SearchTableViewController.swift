@@ -125,8 +125,14 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
     func didShow(error: Error)
     {
         let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-        let action =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+        let action =  UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         alertController.addAction(action)
+        
+        if self.presentedViewController != nil
+        {
+            self.dismiss(animated: false, completion: nil)
+        }
+        
         self.present(alertController, animated: true, completion: nil)
     }
 }
