@@ -46,7 +46,8 @@ class SearchTableViewCell: UITableViewCell {
         if let weatherGeneral = weatherGeneral
         {
             self.placeNameLabel.text = weatherGeneral.name ?? ""
-            self.degreesLabel.text = String.init(format: "%.1f", weatherGeneral.temp) + "°"
+            self.degreesLabel.text = String.init(format: "%.1f", weatherGeneral.temp) + "°F"
+            self.contentView.backgroundColor = Functions.colorForTemperature(temperature: weatherGeneral.temp)
             
             let formatter = DateFormatter()
             formatter.timeZone = NSTimeZone.default
