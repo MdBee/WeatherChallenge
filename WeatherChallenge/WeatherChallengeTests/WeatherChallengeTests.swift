@@ -8,6 +8,9 @@
 
 import XCTest
 @testable import WeatherChallenge
+import CoreData
+
+/* Unfortunatley i didn't have enought time to cover whole project with Unit Tests, i can do that if receive approve for that (additional time) */
 
 class WeatherChallengeTests: XCTestCase {
     
@@ -21,16 +24,86 @@ class WeatherChallengeTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCreateWeatherGeneral()
+    {
+        let moc = CoreDataManager.defaultManager().managedObjectContext
+        let weatherGeneral = NSEntityDescription.insertNewObject(forEntityName: String(describing: WeatherGeneral.classForCoder()), into: moc)
+        XCTAssertNotNil(weatherGeneral)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testCreateSearchList()
+    {
+        let moc = CoreDataManager.defaultManager().managedObjectContext
+        let weatherGeneral = NSEntityDescription.insertNewObject(forEntityName: String(describing: SearchList.classForCoder()), into: moc)
+        XCTAssertNotNil(weatherGeneral)
+    }
+    
+    func testCreateWeather()
+    {
+        let moc = CoreDataManager.defaultManager().managedObjectContext
+        let weatherGeneral = NSEntityDescription.insertNewObject(forEntityName: String(describing: Weather.classForCoder()), into: moc)
+        XCTAssertNotNil(weatherGeneral)
+    }
+    
+    func testSaveToWeather()
+    {
+        let moc = CoreDataManager.defaultManager().managedObjectContext
+        let weather = NSEntityDescription.insertNewObject(forEntityName: String(describing: Weather.classForCoder()), into: moc) as? Weather
+        weather?.id = 1
+        weather?.icon = "100"
+        weather?.main = "main"
+        weather?.weatherDescription = "weatherDescription"
+        
+        do
+        {
+            try moc.save()
+        }
+        catch
+        {
+            XCTFail("Failure to save context: \(error)")
+        }
+        
+    }
+    
+    func testSaveToSearchList()
+    {
+        let moc = CoreDataManager.defaultManager().managedObjectContext
+        let searchList = NSEntityDescription.insertNewObject(forEntityName: String(describing: SearchList.classForCoder()), into: moc) as? SearchList
+        
+        searchList?.searchText = "Paris"
+        searchList?.date = NSDate()
+        
+        do
+        {
+            try moc.save()
+        }
+        catch
+        {
+            XCTFail("Failure to save context: \(error)")
         }
     }
+    
+    func testSaveToWeatherGeneral()
+    {
+        let moc = CoreDataManager.defaultManager().managedObjectContext
+        let weatherGeneral = NSEntityDescription.insertNewObject(forEntityName: String(describing: WeatherGeneral.classForCoder()), into: moc) as? WeatherGeneral
+        
+        weatherGeneral?.id = 2
+        weatherGeneral?.country = "GB"
+        weatherGeneral?.name = "some name"
+        weatherGeneral?.lastUpdate = NSDate()
+        
+        do
+        {
+            try moc.save()
+        }
+        catch
+        {
+            XCTFail("Failure to save context: \(error)")
+        }
+    }
+    
+    
+    
     
 }
