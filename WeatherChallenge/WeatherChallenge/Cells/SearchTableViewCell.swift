@@ -61,11 +61,9 @@ class SearchTableViewCell: UITableViewCell {
         
         if let weatherList = weatherGeneral?.weather?.allObjects as? [Weather]
         {
-            
-            //            iconDatasource.weathers = weatherList
-            //            self.collectionView.reloadData()
             guard !weatherList.isEmpty
                 else { return }
+            
             if weatherList[0].iconImageData != nil {
                 self.iconImageView?.image = UIImage(data: weatherList[0].iconImageData ?? Data())
             } else {

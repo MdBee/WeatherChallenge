@@ -51,6 +51,7 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.kSearchCell, for: indexPath) as! SearchTableViewCell
         cell.delegate = self
+        cell.iconImageView.image = nil
         configureCell(cell: cell, indexPath: indexPath)
         return cell
     }

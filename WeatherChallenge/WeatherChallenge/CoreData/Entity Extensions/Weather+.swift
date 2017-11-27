@@ -65,7 +65,7 @@ extension Weather
         self.main = dictionary["main"] as? String ?? ""
         self.weatherDescription = dictionary["description"] as? String ?? ""
         self.icon = dictionary["icon"] as? String ?? ""
-        self.iconImageData = Data()
+        self.iconImageData = nil
     }
 }
 
