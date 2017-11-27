@@ -108,39 +108,39 @@ class SearchViewDataSource: NSObject, UITableViewDataSource, NSFetchedResultsCon
     //MARK: SearchBarDelegate
     /* if we click on search then we set this search text for FetchResultController and looking in DB if we have this saerch response, if yes then we're showing it on the screen while new infromation downloading*/
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if let text = searchBar.text
-//        {
-//            fetchedResultsController.delegate = nil;
-//            fetchedResultsController = nil;
-//            initializeFetchedResultsController()
-//
-//            searchString = text
-//
-//            let moc = CoreDataManager.defaultManager().managedObjectContext
-//            let exist = CoreDataManager.defaultManager().isSearchListExist(searchText: searchString, context: moc)
-//            if exist == true
-//            {
-//                delegate?.didUpdateView()
-//            }
-//
-//            let task = ServerInteractionManager.sharedServerInteractionManager.getWeather(forCity: searchString, completionBlock: { (dictionary, response, error) in
-//                if let error = error
-//                {
-//                    DispatchQueue.main.async {
-//                        self.delegate?.didShow(error: error)
-//                    }
-//                }
-//            })
-//            task.resume()
-//        }
+        if let text = searchBar.text
+        {
+            fetchedResultsController.delegate = nil;
+            fetchedResultsController = nil;
+            initializeFetchedResultsController()
+
+            searchString = text
+
+            let moc = CoreDataManager.defaultManager().managedObjectContext
+            let exist = CoreDataManager.defaultManager().isSearchListExist(searchText: searchString, context: moc)
+            if exist == true
+            {
+                delegate?.didUpdateView()
+            }
+
+            let task = Backend.sharedBackend.getWeather(forCity: searchString, completionBlock: { (dictionary, response, error) in
+                if let error = error
+                {
+                    DispatchQueue.main.async {
+                        self.delegate?.didShow(error: error)
+                    }
+                }
+            })
+            task.resume()
+        }
         
     }
     
     //MARK: Cell delegate
     /* if we wanna to delete some forecast */
     func didDelete(weatherGeneral: WeatherGeneral) {
-       // let moc  = CoreDataManager.defaultManager().managedObjectContext
-       // moc.delete(weatherGeneral)
+        let moc  = CoreDataManager.defaultManager().managedObjectContext
+        moc.delete(weatherGeneral)
     }
     
 }

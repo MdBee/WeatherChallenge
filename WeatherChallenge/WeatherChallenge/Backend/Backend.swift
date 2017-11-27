@@ -22,10 +22,10 @@ typealias ServerResponseWithData = (_ data: Data?, _ response: URLResponse?, _ e
 typealias ServerResponseWithDictionary = (_ dictionary: [String: AnyObject]?, _ response: URLResponse?, _ error: Error?) -> Void
 typealias ServerResponseWithImage = (_ image: UIImage?, _ response: URLResponse?, _ error: Error?) -> Void
 
-class ServerInteractionManager: NSObject
+class Backend: NSObject
 {
     /* singelton instance */
-    static let sharedServerInteractionManager = ServerInteractionManager()
+    static let sharedBackend = Backend()
     
     /* make init function private because this is singelton */
     private override init()

@@ -61,6 +61,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajn-dz-z9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="Vc1-oz-KVu">
                     <connections>
+                        <outlet property="delegate" destination="IB2-eC-mvW" id="aOK-DU-26k"/>
                         <outlet property="searchBar" destination="8ga-c8-28V" id="oih-NX-jbq"/>
                         <outlet property="searchContentsController" destination="IB2-eC-mvW" id="mdd-dj-udp"/>
                         <outlet property="searchResultsDataSource" destination="IB2-eC-mvW" id="3EH-BO-RVY"/>
