@@ -14,7 +14,7 @@ protocol SearchTableViewCellDelegate {
 }
 
 class SearchTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var degreesLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
@@ -24,7 +24,7 @@ class SearchTableViewCell: UITableViewCell {
     var delegate: SearchTableViewCellDelegate?
     var weatherGeneral: WeatherGeneral? { didSet{ self.updateUI() } }
     
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -32,10 +32,10 @@ class SearchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -61,8 +61,21 @@ class SearchTableViewCell: UITableViewCell {
         
         if let weatherList = weatherGeneral?.weather?.allObjects as? [Weather]
         {
-//            iconDatasource.weathers = weatherList
-//            self.collectionView.reloadData()
+            
+            //            iconDatasource.weathers = weatherList
+            //            self.collectionView.reloadData()
+            guard !weatherList.isEmpty
+                else { return }
+            let task = Backend.sharedBackend.getWeatherIcon(byCode: weatherList[0].icon ?? "", completionBlock: { (image, response, error) in
+                if error == nil, let image = image
+                {
+                    DispatchQueue.main.async {
+                        self.iconImageView?.image = image
+                        self.contentView.addSubview(self.iconImageView)
+                    }
+                }
+            })
+            task.resume()
         }
     }
     

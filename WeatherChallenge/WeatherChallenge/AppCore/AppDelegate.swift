@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        //This is a bit hacky.  If I had more time I'd come up with a different mechanism to achieve the desired update.
+        //This is a bit hacky (and maybe leaky).  If I had more time I'd come up with a different mechanism to achieve the desired update.
         SearchViewModel().refreshLatestResult()
     }
 

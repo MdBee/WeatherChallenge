@@ -50,7 +50,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchTableViewController.swift"
-            timestampString = "533508094.963622"
+            timestampString = "533512655.291056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -202,13 +202,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewModel.swift"
-            timestampString = "533508094.963761"
+            timestampString = "533512655.291263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "152"
             endingLineNumber = "152"
             landmarkName = "refreshLatestResult()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherChallenge/Cells/SearchTableViewCell.swift"
+            timestampString = "533512655.291325"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "updateUI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherChallenge.SearchTableViewCell.updateUI() -&gt; ()"
+                  moduleName = "WeatherChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matt.d.bearson/Documents/Matt%20Personal%20Docs/JobHunt2017/WeatherCodingChallenge/repo/WeatherChallenge/WeatherChallenge/WeatherChallenge/Cells/SearchTableViewCell.swift"
+                  timestampString = "533512371.713633"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "3440">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #2 : @autoclosure () throws -&gt; Swift.String in WeatherChallenge.SearchTableViewCell.updateUI() -&gt; ()"
+                  moduleName = "WeatherChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matt.d.bearson/Documents/Matt%20Personal%20Docs/JobHunt2017/WeatherCodingChallenge/repo/WeatherChallenge/WeatherChallenge/WeatherChallenge/Cells/SearchTableViewCell.swift"
+                  timestampString = "533512371.71557"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__ObjC.UIImage&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in WeatherChallenge.SearchTableViewCell.updateUI() -&gt; ()"
+                  moduleName = "WeatherChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matt.d.bearson/Documents/Matt%20Personal%20Docs/JobHunt2017/WeatherCodingChallenge/repo/WeatherChallenge/WeatherChallenge/WeatherChallenge/Cells/SearchTableViewCell.swift"
+                  timestampString = "533512371.718983"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
