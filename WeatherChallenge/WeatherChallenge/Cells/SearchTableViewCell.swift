@@ -66,16 +66,20 @@ class SearchTableViewCell: UITableViewCell {
             //            self.collectionView.reloadData()
             guard !weatherList.isEmpty
                 else { return }
-            let task = Backend.sharedBackend.getWeatherIcon(byCode: weatherList[0].icon ?? "", completionBlock: { (image, response, error) in
-                if error == nil, let image = image
-                {
-                    DispatchQueue.main.async {
-                        self.iconImageView?.image = image
-                        CoreDataManager.defaultManager().updateWeatherWith(image: image, forId: weatherList[0].id)
+            if weatherList[0].iconImageData != nil {
+                self.iconImageView?.image = UIImage(data: weatherList[0].iconImageData ?? Data())
+            } else {
+                let task = Backend.sharedBackend.getWeatherIcon(byCode: weatherList[0].icon ?? "", completionBlock: { (image, response, error) in
+                    if error == nil, let image = image
+                    {
+                        DispatchQueue.main.async {
+                            self.iconImageView?.image = image
+                            CoreDataManager.defaultManager().updateWeatherWith(image: image, forId: weatherList[0].id)
+                        }
                     }
-                }
-            })
-            task.resume()
+                })
+                task.resume()
+            }
         }
     }
     
