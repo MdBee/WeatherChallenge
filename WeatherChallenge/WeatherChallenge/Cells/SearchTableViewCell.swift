@@ -71,7 +71,7 @@ class SearchTableViewCell: UITableViewCell {
                 {
                     DispatchQueue.main.async {
                         self.iconImageView?.image = image
-                        self.contentView.addSubview(self.iconImageView)
+                        CoreDataManager.defaultManager().updateWeatherWith(image: image, forId: weatherList[0].id)
                     }
                 }
             })

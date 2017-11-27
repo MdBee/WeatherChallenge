@@ -25,6 +25,8 @@ extension Weather {
     @NSManaged public var weatherDescription: String?
     @NSManaged public var icon: String?
     @NSManaged public var weatherGeneral: NSSet?
+    @NSManaged public var iconImageData: Data?
+    
 }
 
 // MARK: Generated accessors for weatherGeneral
@@ -63,6 +65,7 @@ extension Weather
         self.main = dictionary["main"] as? String ?? ""
         self.weatherDescription = dictionary["description"] as? String ?? ""
         self.icon = dictionary["icon"] as? String ?? ""
+        self.iconImageData = Data()
     }
 }
 

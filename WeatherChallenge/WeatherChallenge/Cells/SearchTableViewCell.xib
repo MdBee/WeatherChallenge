@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,10 +65,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c26-tX-pZm">
-                        <rect key="frame" x="100" y="120" width="50" height="50"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="0.94978665370000004" blue="0.27220443929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c26-tX-pZm">
+                        <rect key="frame" x="20" y="79" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Gvr-SN-k45"/>
+                            <constraint firstAttribute="height" constant="50" id="XVu-JF-0g9"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.56550116719999999" green="0.89010515290000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,9 +79,11 @@
                     <constraint firstItem="GA3-qS-jeF" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="BrI-Ov-BTF"/>
                     <constraint firstAttribute="bottom" secondItem="vWe-3v-IkO" secondAttribute="bottom" constant="0.5" id="N9i-fY-bs9"/>
                     <constraint firstItem="GA3-qS-jeF" firstAttribute="top" secondItem="mVR-xy-UMT" secondAttribute="bottom" constant="11" id="dwh-GN-JbL"/>
+                    <constraint firstItem="c26-tX-pZm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="eXE-fn-kxm"/>
                     <constraint firstItem="mVR-xy-UMT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="jnA-o0-afe"/>
                     <constraint firstItem="mVR-xy-UMT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="mu8-2G-EP1"/>
                     <constraint firstAttribute="trailing" secondItem="z3A-We-BII" secondAttribute="trailing" id="p5U-Vv-Lxv"/>
+                    <constraint firstItem="c26-tX-pZm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="txA-bc-RqU"/>
                     <constraint firstItem="vWe-3v-IkO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="wi9-8c-WDr"/>
                 </constraints>
             </tableViewCellContentView>

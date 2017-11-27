@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 /* Core data manager was developed to support saving Weather, WeatherGeneral, SearchList objects
@@ -271,6 +272,33 @@ class CoreDataManager: NSObject
         catch {
             fatalError("Failed to fetch WeatherGeneral: \(error)")
         }
+    }
+    
+    func updateWeatherWith(image: UIImage, forId: Int64) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing:Weather.classForCoder()))
+        let predicate = NSPredicate(format: "id == %@", String(forId))
+        fetchRequest.predicate = predicate
+        let moc = CoreDataManager.defaultManager().managedObjectContext
+        let entity = NSEntityDescription.entity(forEntityName: String(describing:Weather.classForCoder()), in: moc)
+        fetchRequest.entity = entity
+        
+        do {
+            if let result = try moc.fetch(fetchRequest) as? [Weather], result.count == 1
+            {
+                guard let imageData = UIImagePNGRepresentation(image)
+                    else { return }
+                result.first?.iconImageData = imageData
+            }
+            else
+            {
+                return
+            }
+            
+        }
+        catch {
+            fatalError("Failed to update Weather with image: \(error)")
+        }
+        
     }
     
     func getSearchList(searchText: String, context: NSManagedObjectContext) -> SearchList?
