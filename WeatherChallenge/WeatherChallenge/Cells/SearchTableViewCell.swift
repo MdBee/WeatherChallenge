@@ -19,11 +19,12 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var degreesLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var lastUpdateLabel: UILabel!
-    
+    @IBOutlet weak var iconImageView: UIImageView!
     
     var delegate: SearchTableViewCellDelegate?
     var weatherGeneral: WeatherGeneral? { didSet{ self.updateUI() } }
     
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

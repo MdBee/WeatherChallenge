@@ -22,6 +22,7 @@ class SearchViewDataSource: NSObject, UITableViewDataSource, NSFetchedResultsCon
     var delegate: SearchViewDataSourceDelegate?
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     var searchString: String = ""
+    
     var searchController: UISearchController! = UISearchController.init(searchResultsController: nil)
     var searchListArray: [SearchList] = []
     

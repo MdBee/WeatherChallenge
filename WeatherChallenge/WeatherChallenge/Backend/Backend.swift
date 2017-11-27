@@ -110,6 +110,9 @@ class Backend: NSObject
         return getWeatherDictionary(forCity: city) { (dictionary, response, error) in
             if error == nil, let dictionary = dictionary
             {
+                guard dictionary["cod"]?.description != "404"
+                    else { completionBlock(nil,response,NSError(domain: "", code: 404, userInfo: ["message": dictionary[NSLocalizedFailureReasonErrorKey: NSLocalizedString("Please check spelling.", comment:""), "message"]?.description ?? ""]))
+                            return }
                 CoreDataManager.defaultManager().storeServerResponse(response: dictionary, searchText: city)
                 completionBlock(dictionary,response,error)
             }
