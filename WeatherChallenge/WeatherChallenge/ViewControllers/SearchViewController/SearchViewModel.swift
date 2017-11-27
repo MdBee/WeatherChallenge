@@ -37,7 +37,8 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.placeholder = "Enter City Name";
+        searchController.searchBar.placeholder = "Enter City Name"
+        searchController.searchBar.autocapitalizationType = .words
     }
     
     /* customization / init fetch result & search controller */
