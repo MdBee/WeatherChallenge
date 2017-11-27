@@ -128,6 +128,11 @@ class SearchViewDataSource: NSObject, UITableViewDataSource, NSFetchedResultsCon
                         self.delegate?.didShow(error: error)
                     }
                 }
+                else {
+                    DispatchQueue.main.async {
+                        self.delegate?.didUpdateView()
+                    }
+                }
             })
             task.resume()
         }
