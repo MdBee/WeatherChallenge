@@ -34,10 +34,7 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
         datasource.delegate = self
         tableView.delegate = self
         tableView.dataSource = datasource
-        tableView.tableHeaderView = datasource.searchController.searchBar
-//        tableView.estimatedRowHeight = 210
-//        tableView.rowHeight = UITableViewAutomaticDimension
-        
+        tableView.tableHeaderView = datasource.searchController.searchBar        
     }
 
     override func didReceiveMemoryWarning() {

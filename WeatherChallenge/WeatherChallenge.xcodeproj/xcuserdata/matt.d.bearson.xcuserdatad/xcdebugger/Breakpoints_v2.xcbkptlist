@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "WeatherChallenge/Backend/Backend.swift"
-            timestampString = "533498095.888403"
+            timestampString = "533499640.046175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
@@ -34,7 +34,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/Backend/Backend.swift"
-            timestampString = "533498095.888687"
+            timestampString = "533499640.046462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -50,11 +50,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchTableViewController.swift"
-            timestampString = "533498095.888742"
+            timestampString = "533499640.046524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "didShow(error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -66,23 +66,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
-            timestampString = "533498095.888924"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
-            timestampString = "533498095.889419"
+            timestampString = "533499640.046711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
@@ -94,35 +78,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
-            timestampString = "533498095.889657"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                  <ActionContent
-                     consoleCommand = "po print(&quot;sectionInfo.numberOfObjects = &quot; + sectionInfo.numberOfObjects.description)">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
-            timestampString = "533498095.889887"
+            timestampString = "533499640.047039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -138,7 +98,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
-            timestampString = "533498095.890177"
+            timestampString = "533499640.047439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
@@ -154,13 +114,85 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/Backend/Backend.swift"
-            timestampString = "533498095.890448"
+            timestampString = "533499640.047673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
             landmarkName = "getWeather(forCity:completionBlock:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
+            timestampString = "533499640.047724"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "po print(&quot;section is &quot; + section.description)">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
+            timestampString = "533499640.047939"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "controllerDidChangeContent(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherChallenge.SearchViewDataSource.controllerDidChangeContent(__ObjC.NSFetchedResultsController&lt;__ObjC.NSFetchRequestResult&gt;) -&gt; ()"
+                  moduleName = "WeatherChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matt.d.bearson/Documents/Matt%20Personal%20Docs/JobHunt2017/WeatherCodingChallenge/repo/WeatherChallenge/WeatherChallenge/WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
+                  timestampString = "533499640.138763"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in WeatherChallenge.SearchViewDataSource.controllerDidChangeContent(__ObjC.NSFetchedResultsController&lt;__ObjC.NSFetchRequestResult&gt;) -&gt; ()"
+                  moduleName = "WeatherChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matt.d.bearson/Documents/Matt%20Personal%20Docs/JobHunt2017/WeatherCodingChallenge/repo/WeatherChallenge/WeatherChallenge/WeatherChallenge/ViewControllers/SearchViewController/SearchViewDataSource.swift"
+                  timestampString = "533499640.140397"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -110,7 +110,7 @@ class CoreDataManager: NSObject
             dict[NSLocalizedDescriptionKey] = dict["Failed to initialize the application's saved data"]
             dict[NSLocalizedFailureReasonErrorKey] = dict[failureReason]
             dict[NSUnderlyingErrorKey] = error as NSError
-            let wrappedError = NSError(domain: "com.WeatherChallange", code: 9999, userInfo: dict)
+            let wrappedError = NSError(domain: "com.WeatherChallenge", code: 9999, userInfo: dict)
             NSLog("Unresolved error \(wrappedError)", "\(wrappedError.userInfo)")
             abort()
         }
@@ -302,27 +302,28 @@ class CoreDataManager: NSObject
     func storeServerResponse(response: [String:AnyObject], searchText: String)
     {
         let moc = CoreDataManager.defaultManager().managedObjectContext
-        let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        privateMOC.parent = moc
+//        let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//        privateMOC.parent = moc
         
-        privateMOC.perform {
-            
-            let exist = CoreDataManager.defaultManager().isSearchListExist(searchText: searchText, context: privateMOC)
+        moc.perform {
+//        privateMOC.perform {
+        
+            let exist = CoreDataManager.defaultManager().isSearchListExist(searchText: searchText, context: moc)
             if exist == false
             {
-                let searchList = SearchList.initWithDictionary(searchText: searchText,dictionary: response, context: privateMOC)
+                let searchList = SearchList.initWithDictionary(searchText: searchText,dictionary: response, context: moc)
                 searchList?.searchText = searchText
                 searchList?.date = NSDate()
             }
             else
             {
-                let searchList = CoreDataManager.defaultManager().getSearchList(searchText: searchText, context: privateMOC)
-                searchList?.updateWith(dictionary: response, context: privateMOC)
+                let searchList = CoreDataManager.defaultManager().getSearchList(searchText: searchText, context: moc)
+                searchList?.updateWith(dictionary: response, context: moc)
                 searchList?.date = NSDate()
             }
             
             do {
-                try privateMOC.save()
+                try moc.save()
                 moc.performAndWait {
                     do {
                         try moc.save()

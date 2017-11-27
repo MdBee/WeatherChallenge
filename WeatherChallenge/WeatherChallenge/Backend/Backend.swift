@@ -111,7 +111,7 @@ class Backend: NSObject
             if error == nil, let dictionary = dictionary
             {
                 guard dictionary["cod"]?.description != "404"
-                    else { completionBlock(nil,response,NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "Please check spelling of city name."]))
+                    else { completionBlock(nil,response,NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "City not found.  Please check spelling of city name."]))
                         return }
                 CoreDataManager.defaultManager().storeServerResponse(response: dictionary, searchText: city)
                 completionBlock(dictionary,response,error)

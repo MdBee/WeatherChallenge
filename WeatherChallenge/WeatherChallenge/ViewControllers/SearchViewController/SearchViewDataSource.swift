@@ -32,7 +32,7 @@ class SearchViewDataSource: NSObject, UITableViewDataSource, NSFetchedResultsCon
     
     func searchControllerInitialization()
     {
-        //searchController.searchResultsUpdater = self
+        //searchController.searchResultsUpdater = self as? UISearchResultsUpdating
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
@@ -78,8 +78,8 @@ class SearchViewDataSource: NSObject, UITableViewDataSource, NSFetchedResultsCon
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherGeneral")
         
-        let fetchPredicate = NSPredicate(format: "searchList.searchText CONTAINS[c] %@", searchString)
-        request.predicate = fetchPredicate
+//        let fetchPredicate = NSPredicate(format: "searchList.searchText CONTAINS[c] %@", searchString)
+//        request.predicate = fetchPredicate
         
         let sortDescr = NSSortDescriptor(key: "lastUpdate", ascending: false)
         request.sortDescriptors = [sortDescr]
