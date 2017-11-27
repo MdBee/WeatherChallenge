@@ -147,4 +147,24 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
         moc.delete(weatherGeneral)
     }
     
+    func refreshLatestResult() {
+        initializeFetchedResultsController()
+        if let latest = fetchedResultsController.fetchedObjects?.first as? WeatherGeneral {
+            let task = Backend.sharedBackend.getWeather(forCity: latest.name ?? "", completionBlock: { (dictionary, response, error) in
+                if let error = error
+                {
+                    DispatchQueue.main.async {
+                        self.delegate?.didShow(error: error)
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.delegate?.didUpdateView()
+                    }
+                }
+            })
+            task.resume()
+        }
+    }
+    
 }

@@ -36,6 +36,11 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
         tableView.dataSource = datasource
         tableView.tableHeaderView = datasource.searchController.searchBar        
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        datasource.refreshLatestResult()
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
