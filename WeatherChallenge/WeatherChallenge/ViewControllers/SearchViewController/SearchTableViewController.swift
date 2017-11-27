@@ -35,6 +35,8 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
         tableView.delegate = self
         tableView.dataSource = datasource
         tableView.tableHeaderView = datasource.searchController.searchBar
+//        tableView.estimatedRowHeight = 210
+//        tableView.rowHeight = UITableViewAutomaticDimension
         
     }
 

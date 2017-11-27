@@ -9,18 +9,88 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Medium</string>
+        </array>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kSearchCell" id="KGk-i7-Jjw" customClass="SearchTableViewCell" customModule="WeatherChallenge" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kSearchCell" rowHeight="210" id="KGk-i7-Jjw" customClass="SearchTableViewCell" customModule="WeatherChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="209"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="208.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="South San Francisco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVR-xy-UMT">
+                        <rect key="frame" x="0.0" y="11" width="202" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="dCb-tj-rDX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GA3-qS-jeF">
+                        <rect key="frame" x="126.5" y="43" width="67" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="iwK-sw-XZH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="70"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3A-We-BII">
+                        <rect key="frame" x="290" y="82" width="30" height="45"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                        <state key="normal" title="X">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteButtonTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="faa-b1-ObW"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last update: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWe-3v-IkO">
+                        <rect key="frame" x="0.0" y="187" width="70.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="db6-D7-fNW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.81960791349999995" green="0.83529418710000003" blue="0.84705889229999998" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c26-tX-pZm">
+                        <rect key="frame" x="100" y="120" width="50" height="50"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.94978665370000004" blue="0.27220443929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </imageView>
+                </subviews>
                 <color key="backgroundColor" red="0.56550116719999999" green="0.89010515290000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="z3A-We-BII" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9Fy-jZ-Ifd"/>
+                    <constraint firstItem="GA3-qS-jeF" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="BrI-Ov-BTF"/>
+                    <constraint firstAttribute="bottom" secondItem="vWe-3v-IkO" secondAttribute="bottom" constant="0.5" id="N9i-fY-bs9"/>
+                    <constraint firstItem="GA3-qS-jeF" firstAttribute="top" secondItem="mVR-xy-UMT" secondAttribute="bottom" constant="11" id="dwh-GN-JbL"/>
+                    <constraint firstItem="mVR-xy-UMT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="jnA-o0-afe"/>
+                    <constraint firstItem="mVR-xy-UMT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mu8-2G-EP1"/>
+                    <constraint firstAttribute="trailing" secondItem="z3A-We-BII" secondAttribute="trailing" id="p5U-Vv-Lxv"/>
+                    <constraint firstItem="vWe-3v-IkO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wi9-8c-WDr"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="degreesLabel" destination="GA3-qS-jeF" id="j1T-iR-WwN"/>
+                <outlet property="deleteButton" destination="z3A-We-BII" id="RTg-z5-r9O"/>
+                <outlet property="lastUpdateLabel" destination="vWe-3v-IkO" id="bXR-MT-gQf"/>
+                <outlet property="placeNameLabel" destination="mVR-xy-UMT" id="Etq-NI-V3I"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="53.5"/>
         </tableViewCell>
     </objects>
 </document>

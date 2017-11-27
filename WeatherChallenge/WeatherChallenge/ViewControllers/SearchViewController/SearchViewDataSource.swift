@@ -55,23 +55,20 @@ class SearchViewDataSource: NSObject, UITableViewDataSource, NSFetchedResultsCon
     
     func configureCell(cell: SearchTableViewCell, indexPath:IndexPath)
     {
-//        guard let selectedObject = fetchedResultsController.object(at: indexPath) as? WeatherGeneral else { fatalError("Unexpected Object in FetchedResultsController") }
-        //cell.weatherGeneral = selectedObject
-        cell.contentView.backgroundColor = UIColor.yellow
+        guard let selectedObject = fetchedResultsController.object(at: indexPath) as? WeatherGeneral else { fatalError("Unexpected Object in FetchedResultsController") }
+        cell.weatherGeneral = selectedObject
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard let sections = fetchedResultsController.sections else {
-//            fatalError("No sections in fetchedResultsController")
-//        }
-//        let sectionInfo = sections[section]
-//        return sectionInfo.numberOfObjects
-   return 1
+        guard let sections = fetchedResultsController.sections else {
+            fatalError("No sections in fetchedResultsController")
+        }
+        let sectionInfo = sections[section]
+        return sectionInfo.numberOfObjects
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        //return fetchedResultsController.sections!.count
-        return 1
+        return fetchedResultsController.sections!.count
     }
     
     //MARK: FetchResult
