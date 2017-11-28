@@ -39,7 +39,6 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
         self.tableView.reloadData()
     }
     
-    //Displays alertView with error message.
     func didThrow(error: Error)
     {
         let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)

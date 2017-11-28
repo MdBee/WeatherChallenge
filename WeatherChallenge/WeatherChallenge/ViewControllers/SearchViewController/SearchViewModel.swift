@@ -15,7 +15,7 @@ protocol SearchViewDataSourceDelegate {
     func didThrow(error: Error)
 }
 
-/* SearchViewModel populates the Search View Controller */
+// SearchViewModel populates the Search TableView
 
 class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, SearchTableViewCellDelegate
 {
@@ -80,14 +80,11 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
         return fetchedResultsController.sections!.count
     }
     
-    //MARK: FetchResult
-    /* init fetch result controller to refresh table view automatically when new data stored to DB */
+    //MARK: Core Data Fetch
+    
     func initializeFetchedResultsController()
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeatherGeneral")
-        
-//        let fetchPredicate = NSPredicate(format: "searchList.searchText CONTAINS[c] %@", searchString)
-//        request.predicate = fetchPredicate
         
         let sortDescr = NSSortDescriptor(key: "lastUpdate", ascending: false)
         request.sortDescriptors = [sortDescr]
@@ -95,7 +92,7 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
         let moc = CoreDataManager.defaultManager().managedObjectContext
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
-
+        
         do {
             try fetchedResultsController.performFetch()
         } catch {
@@ -103,8 +100,9 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
         }
     }
     
-    //MARK: fetch result delegate
-    /* if we receive this notification about chagned context in database then we need to reload table view */
+    //MARK: Fetch Result Delegate
+    
+    //Updates the tableView when the data changes.
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         DispatchQueue.main.async {
             self.delegate?.didUpdateView()
@@ -112,23 +110,23 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
     }
     
     //MARK: SearchBarDelegate
-    /* if we click on search then we set this search text for FetchResultController and looking in DB if we have this saerch response, if yes then we're showing it on the screen while new infromation downloading*/
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text
         {
             fetchedResultsController.delegate = nil;
             fetchedResultsController = nil;
             initializeFetchedResultsController()
-
+            
             searchString = text
-
+            
             let moc = CoreDataManager.defaultManager().managedObjectContext
             let exist = CoreDataManager.defaultManager().isSearchListExist(searchText: searchString, context: moc)
             if exist == true
             {
                 delegate?.didUpdateView()
             }
-
+            
             let task = Backend.sharedBackend.getWeather(forCity: searchString, completionBlock: { (dictionary, response, error) in
                 if let error = error
                 {
@@ -148,7 +146,7 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
     }
     
     //MARK: Cell delegate
-    /* if we wanna to delete some forecast */
+    
     func didDelete(weatherGeneral: WeatherGeneral) {
         let moc  = CoreDataManager.defaultManager().managedObjectContext
         moc.delete(weatherGeneral)
@@ -173,6 +171,7 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
             task.resume()
         }
     }
+    
     
     //MARK: Refresh Control target
     

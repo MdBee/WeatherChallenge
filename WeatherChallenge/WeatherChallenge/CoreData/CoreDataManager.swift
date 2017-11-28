@@ -10,40 +10,23 @@ import Foundation
 import UIKit
 import CoreData
 
-/* Core data manager was developed to support saving Weather, WeatherGeneral, SearchList objects
- we can
- check if item exist
- remove item
- get item
- create and save item
- by using this model
- */
-
 class CoreDataManager: NSObject
 {
     private(set) var modelName: String
     private(set) var databaseName: String
-    
-    //Holds references to the contextes created for this manager.
+
     public var contextArray: [NSManagedObjectContext] = []
     
-    //Returns whether or not context merges should be done synchronized. Defaults to true.
     open var synchronizedMerging: Bool = true
     
-    //Manages all the instances of the CoreDataManager.
     static private(set) var managerDictionary: [String: CoreDataManager] = [:]
-    
-    //Gets the manager for the given model name. Assumes the database name is same as the model name.
+
     public class func defaultManager() -> CoreDataManager {
         return self.manager(modelName: "WeatherChallenge", databaseName: "WeatherChallenge")
-        
     }
-    
-    //The managed object model for the given model.
+
     lazy public var managedObjectModel: NSManagedObjectModel = NSManagedObjectModel(contentsOf: self.modelPathURL)!
-    
-    //Gets the manager for the given model name. Assumes the database name is same as the model name.
-    
+
     public class func manager(modelName: String) -> CoreDataManager {
         return self.manager(modelName: modelName, databaseName: modelName)
     }
@@ -54,10 +37,7 @@ class CoreDataManager: NSObject
         self.modelName = modelName
         self.databaseName = databaseName
     }
-    
-    //  Gets the manager for the given model and database name.
-    //    If the database name already exists, will return that, regardless of model name.
-    
+
     public class func manager(modelName: String, databaseName: String) -> CoreDataManager {
         var manager: CoreDataManager! = managerDictionary[databaseName]
         if manager == nil {
@@ -73,19 +53,13 @@ class CoreDataManager: NSObject
         NotificationCenter.default.removeObserver(self)
     }
     
-    //This is is the default managed object context for the main queue.
-    
     lazy public var managedObjectContext: NSManagedObjectContext = {
         let coordinator = self.persistentStoreCoordinator
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
-    
-    
-    
-    //Provides the model path URL for the manager's model name.
-    
+
     open var modelPathURL: URL {
         return Bundle.main.url(forResource: self.modelName, withExtension: "momd")!
     }
@@ -95,12 +69,10 @@ class CoreDataManager: NSObject
         return urls[urls.count - 1] as NSURL
     }()
     
-    
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.appendingPathComponent("Data.sqlite")
         var failureReason = "There was an error creating or loading the application's saved Data"
-        
         
         do {
             let options = [ NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : true ]
@@ -118,8 +90,6 @@ class CoreDataManager: NSObject
         return coordinator
     }()
     
-    
-    
     public func remove(context: NSManagedObjectContext) {
         self.removeObserver(context)
         if let index = self.contextArray.index(of: context) {
@@ -127,19 +97,14 @@ class CoreDataManager: NSObject
         }
     }
     
-    //Adds a NotificationCenter observe on the given context for NSManagedObjectContextDidSave.
-    
     public func addObserver(_ context: NSManagedObjectContext) {
         NotificationCenter.default.addObserver(self, selector: #selector(CoreDataManager.contextDidSave), name: NSNotification.Name.NSManagedObjectContextDidSave, object: context)
     }
     
-    //Removes a NotificationCenter observe on the given context.
     public func removeObserver(_ context: NSManagedObjectContext) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSManagedObjectContextDidSave, object: context)
     }
-    
-    //Handles the NSManagedObjectContextDidSave notification.
-    
+
     @objc open func contextDidSave(notification: Notification) {
         let notificationContext: NSManagedObjectContext = notification.object as! NSManagedObjectContext
         
@@ -177,7 +142,7 @@ class CoreDataManager: NSObject
         }
     }
     
-    //MARK: Existing checks
+    //MARK: Existence checks
     
     func isWeatherGeneralExist(dictionary: [String: AnyObject], context: NSManagedObjectContext) -> Bool
     {
@@ -224,7 +189,7 @@ class CoreDataManager: NSObject
         return count != 0
     }
     
-    //MARK: Get entities
+    //MARK: Get Entities
     
     func getWeatherGeneral(id: Int, context: NSManagedObjectContext) -> WeatherGeneral?
     {
@@ -259,9 +224,10 @@ class CoreDataManager: NSObject
         fetchRequest.entity = entity
         
         do {
-            if let result = try context.fetch(fetchRequest) as? [Weather], result.count == 1
+            if let result = try context.fetch(fetchRequest) as? [Weather]
             {
-                return result.first
+                //return result.first
+                return result.last
             }
             else
             {
@@ -274,6 +240,7 @@ class CoreDataManager: NSObject
         }
     }
     
+    /** Caches images */
     func updateWeatherWith(image: UIImage, forId: Int64) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing:Weather.classForCoder()))
         let predicate = NSPredicate(format: "id == %@", String(forId))
@@ -324,8 +291,6 @@ class CoreDataManager: NSObject
             fatalError("Failed to fetch WeatherGeneral: \(error)")
         }
     }
-    
-    /* basic class to store all data in DB */
     
     func storeServerResponse(response: [String:AnyObject], searchText: String)
     {

@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-/* I decided to use singelton for Server Interaction Manager where i developed basic api calls
- we can simple get image, data or dictionary from server */
-
 enum RequestMethods: String
 {
     case GET = "GET"
@@ -24,10 +21,9 @@ typealias ServerResponseWithImage = (_ image: UIImage?, _ response: URLResponse?
 
 class Backend: NSObject
 {
-    /* singelton instance */
+    /** Singleton */
     static let sharedBackend = Backend()
     
-    /* make init function private because this is singelton */
     private override init()
     {
         super.init()
@@ -52,13 +48,12 @@ class Backend: NSObject
         return session.dataTask(with: request, completionHandler: completionBlock)
     }
     
-    /* private GET to use inside this class only */
+    /** Private GET to use inside this class only */
     private func GET(url: URL, parameters: Data?, completionBlock: @escaping ServerResponseWithData) -> URLSessionDataTask
     {
         return sendRequest(withHttpMethod: .GET, url: url, parameters: parameters, completionBlock: completionBlock)
     }
     
-    /* by using this method we can get image based on url */
     private func getImageWithURL(url: URL, completionBlock: @escaping ServerResponseWithImage) -> URLSessionDataTask
     {
         return GET(url: url, parameters: nil, completionBlock: { (data, response, error) in
@@ -80,7 +75,7 @@ class Backend: NSObject
         })
     }
     
-    /* by using this method we can get image based on url */
+
     private func getDataWithURL(url: URL, completionBlock: @escaping ServerResponseWithData) -> URLSessionDataTask
     {
         return GET(url: url, parameters: nil, completionBlock: { (data, response, error) in
@@ -103,8 +98,8 @@ class Backend: NSObject
     }
     
     
-    //MARK: - general methods
-    /* to get weather by city */
+    //MARK: - General Methods
+
     func getWeather(forCity city: String, completionBlock: @escaping ServerResponseWithDictionary) -> URLSessionDataTask
     {
         return getWeatherDictionary(forCity: city) { (dictionary, response, error) in
@@ -123,7 +118,6 @@ class Backend: NSObject
         }
     }
     
-    /* to get weather dictionary by city */
     func getWeatherDictionary(forCity city: String, completionBlock: @escaping  ServerResponseWithDictionary) -> URLSessionDataTask
     {
         let urlString = OpenWeatherMapConstants.baseURL.appending(OpenWeatherAPI.getWeather)+"?"+"q=\(city)"+"&APPID=\(OpenWeatherMapConstants.apiKey)"
@@ -142,8 +136,6 @@ class Backend: NSObject
         }
     }
     
-    
-    /* to get weather icon by city */
     func getWeatherIcon(byCode: String, completionBlock: @escaping ServerResponseWithImage) -> URLSessionDataTask
     {
         let urlString = OpenWeatherMapConstants.baseURL.appending(OpenWeatherAPI.getIcon)+byCode+".png"

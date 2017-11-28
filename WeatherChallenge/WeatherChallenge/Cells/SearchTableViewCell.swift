@@ -41,8 +41,6 @@ class SearchTableViewCell: UITableViewCell {
     
     func updateUI()
     {
-        //collectionView.dataSource = iconDatasource
-        
         if let weatherGeneral = weatherGeneral
         {
             self.placeNameLabel.text = weatherGeneral.name ?? ""

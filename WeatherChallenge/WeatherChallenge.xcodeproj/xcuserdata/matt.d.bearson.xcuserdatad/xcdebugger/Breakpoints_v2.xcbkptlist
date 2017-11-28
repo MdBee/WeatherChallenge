@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "WeatherChallenge/Backend/Backend.swift"
-            timestampString = "533506205.048514"
+            timestampString = "533525011.137074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "getWeather(forCity:completionBlock:)"
             landmarkType = "7">
             <Actions>
@@ -34,11 +34,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/Backend/Backend.swift"
-            timestampString = "533506205.048801"
+            timestampString = "533525011.137136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "getWeather(forCity:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -50,12 +50,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchTableViewController.swift"
-            timestampString = "533521350.347696"
+            timestampString = "533525011.137184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "didShow(error:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "didThrow(error:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -114,11 +114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/Backend/Backend.swift"
-            timestampString = "533506205.049184"
+            timestampString = "533525011.137294"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "getWeather(forCity:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/ViewControllers/SearchViewController/SearchViewModel.swift"
-            timestampString = "533521350.347919"
+            timestampString = "533525011.137377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "refreshLatestResult()"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "WeatherChallenge/Cells/SearchTableViewCell.swift"
-            timestampString = "533521350.348292"
+            timestampString = "533525011.137441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "updateUI()"
             landmarkType = "7">
             <Actions>
@@ -242,11 +242,11 @@
                   moduleName = "WeatherChallenge"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matt.d.bearson/Documents/Matt%20Personal%20Docs/JobHunt2017/WeatherCodingChallenge/repo/WeatherChallenge/WeatherChallenge/WeatherChallenge/Cells/SearchTableViewCell.swift"
-                  timestampString = "533521350.439248"
+                  timestampString = "533525011.17778"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
                   offsetFromSymbolStart = "3892">
                </Location>
                <Location
@@ -257,11 +257,11 @@
                   moduleName = "WeatherChallenge"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matt.d.bearson/Documents/Matt%20Personal%20Docs/JobHunt2017/WeatherCodingChallenge/repo/WeatherChallenge/WeatherChallenge/WeatherChallenge/Cells/SearchTableViewCell.swift"
-                  timestampString = "533521350.440981"
+                  timestampString = "533525011.180452"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
@@ -274,11 +274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherChallenge/CoreData/CoreDataManager.swift"
-            timestampString = "533521350.348354"
+            timestampString = "533525011.13749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "updateWeatherWith(image:forId:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -290,11 +290,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "WeatherChallenge/Cells/SearchTableViewCell.swift"
-            timestampString = "533521350.348403"
+            timestampString = "533525011.137798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "updateUI()"
             landmarkType = "7">
             <Actions>
@@ -305,6 +305,22 @@
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherChallenge/CoreData/CoreDataManager.swift"
+            timestampString = "533525011.137845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "getWeather(id:context:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
