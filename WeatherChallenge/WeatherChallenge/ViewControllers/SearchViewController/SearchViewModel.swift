@@ -177,8 +177,7 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
     //MARK: Refresh Control target
     
     @objc func refreshControlValueChanged(refresh:UIRefreshControl) {
-        //This doesn't really refresh much at this point.
-        delegate?.didUpdateView()
+        refreshLatestResult()
         refreshControl.endRefreshing()
     }
 }
