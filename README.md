@@ -7,4 +7,6 @@ My approach to caching the images is somewhat crude.  It works, but using a fram
 
 If it was desired and I had time to add detail to the comments I would use AppleScript syntax.
 
+In case you're wondering:  the background colors represent temperature ranges.
+
 Matt Bearson
