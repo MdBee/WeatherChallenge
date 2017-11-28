@@ -15,7 +15,7 @@ protocol SearchViewDataSourceDelegate {
     func didShow(error: Error)
 }
 
-/* SearchViewDataSource populates the Search View Controller */
+/* SearchViewModel populates the Search View Controller */
 
 class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, SearchTableViewCellDelegate
 {
@@ -24,6 +24,8 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
     var searchString: String = ""
     
     var searchController: UISearchController! = UISearchController.init(searchResultsController: nil)
+    var refreshControl: UIRefreshControl! = UIRefreshControl()
+    
     var searchListArray: [SearchList] = []
     
     override init() {
@@ -32,7 +34,6 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
     
     func searchControllerInitialization()
     {
-        //searchController.searchResultsUpdater = self as? UISearchResultsUpdating
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
@@ -41,11 +42,16 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
         searchController.searchBar.autocapitalizationType = .words
     }
     
+    func refreshControlInitialization() {
+        refreshControl?.addTarget(self, action: #selector(self.refreshControlValueChanged), for: .valueChanged)
+    }
+    
     /* customization / init fetch result & search controller */
     func doCustomization()
     {
         initializeFetchedResultsController()
         searchControllerInitialization()
+        refreshControlInitialization()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -168,4 +174,11 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
         }
     }
     
+    //MARK: Refresh Control target
+    
+    @objc func refreshControlValueChanged(refresh:UIRefreshControl) {
+        //This doesn't really refresh much at this point.
+        delegate?.didUpdateView()
+        refreshControl.endRefreshing()
+    }
 }

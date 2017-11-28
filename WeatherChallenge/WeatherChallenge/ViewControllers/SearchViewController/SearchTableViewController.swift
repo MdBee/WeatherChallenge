@@ -34,7 +34,8 @@ class SearchTableViewController: UITableViewController, SearchViewDataSourceDele
         datasource.delegate = self
         tableView.delegate = self
         tableView.dataSource = datasource
-        tableView.tableHeaderView = datasource.searchController.searchBar        
+        tableView.tableHeaderView = datasource.searchController.searchBar
+        tableView.refreshControl = datasource.refreshControl
     }
     
     override func didReceiveMemoryWarning() {
