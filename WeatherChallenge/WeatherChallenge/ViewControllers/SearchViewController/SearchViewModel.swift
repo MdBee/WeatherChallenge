@@ -12,7 +12,7 @@ import CoreData
 
 protocol SearchViewDataSourceDelegate {
     func didUpdateView()
-    func didShow(error: Error)
+    func didThrow(error: Error)
 }
 
 /* SearchViewModel populates the Search View Controller */
@@ -133,7 +133,7 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
                 if let error = error
                 {
                     DispatchQueue.main.async {
-                        self.delegate?.didShow(error: error)
+                        self.delegate?.didThrow(error: error)
                     }
                 }
                 else {
@@ -161,7 +161,7 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
                 if let error = error
                 {
                     DispatchQueue.main.async {
-                        self.delegate?.didShow(error: error)
+                        self.delegate?.didThrow(error: error)
                     }
                 }
                 else {
