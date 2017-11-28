@@ -44,6 +44,7 @@ class SearchViewModel: NSObject, UITableViewDataSource, NSFetchedResultsControll
     
     func refreshControlInitialization() {
         refreshControl?.addTarget(self, action: #selector(self.refreshControlValueChanged), for: .valueChanged)
+        refreshControl.accessibilityIdentifier = "refreshControl"
     }
     
     /* customization / init fetch result & search controller */

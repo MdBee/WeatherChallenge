@@ -9,18 +9,10 @@
 import XCTest
 
 class WeatherChallengeUITests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
@@ -28,9 +20,25 @@ class WeatherChallengeUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDelete() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let tablesQuery = app.tables
+        tablesQuery.searchFields["Enter City Name"].tap()
+        app.searchFields["Enter City Name"].typeText("Los Angeles")
+        app.typeText("\r")
+        
+        let table = app.tables["tableView"]
+        table.swipeDown()
+
+        let count1 = table.cells.count
+        let cell = table.cells.element(boundBy: 0)
+        cell.buttons["button_delete"].tap()
+
+        let count2 = table.cells.count
+        
+        XCTAssert(count1 - 1 == count2 , "Cell should have been removed from tableView.")
     }
     
 }

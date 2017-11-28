@@ -39,6 +39,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3A-We-BII">
                         <rect key="frame" x="290" y="87.5" width="30" height="34"/>
+                        <accessibility key="accessibilityConfiguration" identifier="button_delete"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                         <state key="normal" title="X">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,6 +50,9 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last update: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWe-3v-IkO">
                         <rect key="frame" x="20" y="187" width="70.5" height="21"/>
+                        <accessibility key="accessibilityConfiguration" identifier="label_lastUpdate">
+                            <accessibilityTraits key="traits" staticText="YES" searchField="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="db6-D7-fNW"/>
                         </constraints>

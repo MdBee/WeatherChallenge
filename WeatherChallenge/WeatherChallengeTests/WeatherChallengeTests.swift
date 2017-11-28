@@ -102,8 +102,4 @@ class WeatherChallengeTests: XCTestCase {
             XCTFail("Failure to save context: \(error)")
         }
     }
-    
-    
-    
-    
 }

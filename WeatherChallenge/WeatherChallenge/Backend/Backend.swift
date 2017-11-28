@@ -75,7 +75,7 @@ class Backend: NSObject
         })
     }
     
-
+    
     private func getDataWithURL(url: URL, completionBlock: @escaping ServerResponseWithData) -> URLSessionDataTask
     {
         return GET(url: url, parameters: nil, completionBlock: { (data, response, error) in
@@ -99,7 +99,7 @@ class Backend: NSObject
     
     
     //MARK: - General Methods
-
+    
     func getWeather(forCity city: String, completionBlock: @escaping ServerResponseWithDictionary) -> URLSessionDataTask
     {
         return getWeatherDictionary(forCity: city) { (dictionary, response, error) in

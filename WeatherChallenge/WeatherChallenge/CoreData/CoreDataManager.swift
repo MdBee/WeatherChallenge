@@ -14,19 +14,19 @@ class CoreDataManager: NSObject
 {
     private(set) var modelName: String
     private(set) var databaseName: String
-
+    
     public var contextArray: [NSManagedObjectContext] = []
     
     open var synchronizedMerging: Bool = true
     
     static private(set) var managerDictionary: [String: CoreDataManager] = [:]
-
+    
     public class func defaultManager() -> CoreDataManager {
         return self.manager(modelName: "WeatherChallenge", databaseName: "WeatherChallenge")
     }
-
+    
     lazy public var managedObjectModel: NSManagedObjectModel = NSManagedObjectModel(contentsOf: self.modelPathURL)!
-
+    
     public class func manager(modelName: String) -> CoreDataManager {
         return self.manager(modelName: modelName, databaseName: modelName)
     }
@@ -37,7 +37,7 @@ class CoreDataManager: NSObject
         self.modelName = modelName
         self.databaseName = databaseName
     }
-
+    
     public class func manager(modelName: String, databaseName: String) -> CoreDataManager {
         var manager: CoreDataManager! = managerDictionary[databaseName]
         if manager == nil {
@@ -59,7 +59,7 @@ class CoreDataManager: NSObject
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
-
+    
     open var modelPathURL: URL {
         return Bundle.main.url(forResource: self.modelName, withExtension: "momd")!
     }
@@ -104,7 +104,7 @@ class CoreDataManager: NSObject
     public func removeObserver(_ context: NSManagedObjectContext) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSManagedObjectContextDidSave, object: context)
     }
-
+    
     @objc open func contextDidSave(notification: Notification) {
         let notificationContext: NSManagedObjectContext = notification.object as! NSManagedObjectContext
         
@@ -246,7 +246,9 @@ class CoreDataManager: NSObject
         let predicate = NSPredicate(format: "id == %@", String(forId))
         fetchRequest.predicate = predicate
         let moc = CoreDataManager.defaultManager().managedObjectContext
-        let entity = NSEntityDescription.entity(forEntityName: String(describing:Weather.classForCoder()), in: moc)
+        let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        privateMOC.parent = moc
+        let entity = NSEntityDescription.entity(forEntityName: String(describing:Weather.classForCoder()), in: privateMOC)
         fetchRequest.entity = entity
         
         do {
@@ -260,7 +262,6 @@ class CoreDataManager: NSObject
             {
                 return
             }
-            
         }
         catch {
             fatalError("Failed to update Weather with image: \(error)")
@@ -297,9 +298,9 @@ class CoreDataManager: NSObject
         let moc = CoreDataManager.defaultManager().managedObjectContext
         let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         privateMOC.parent = moc
-
-        privateMOC.perform {
         
+        privateMOC.perform {
+            
             let exist = CoreDataManager.defaultManager().isSearchListExist(searchText: searchText, context: privateMOC)
             if exist == false
             {
@@ -328,5 +329,4 @@ class CoreDataManager: NSObject
             }
         }
     }
-    
 }
